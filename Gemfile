@@ -15,7 +15,7 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 gem "sassc-rails"
 gem 'webpacker'
-
+gem 'bootstrap-sass'
 
 group :development, :test do
   gem "sqlite3", "~> 1.4"
