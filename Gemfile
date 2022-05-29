@@ -16,6 +16,7 @@ gem "bootsnap", require: false
 gem "sassc-rails"
 gem 'webpacker'
 gem 'bootstrap-sass'
+gem "bcrypt"
 
 group :development, :test do
   gem "sqlite3", "~> 1.4"
