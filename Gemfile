@@ -5,7 +5,6 @@ ruby "2.7.6"
 
 gem "rails", "~> 7.0.3"
 gem "sprockets-rails"
-gem "sqlite3", "~> 1.4"
 gem "puma", "~> 5.0"
 gem "importmap-rails"
 gem "turbo-rails"
@@ -42,5 +41,6 @@ group :test do
 end
 
 group :production do
-  gem 'pg', '1.2.3'
+  gem 'pg'
+  gem 'rails_12factor'
 end
