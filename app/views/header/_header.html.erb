@@ -1,0 +1,20 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <%= link_to "sample app", root_path, id: "logo" %>
+    <nav>
+      <ul>
+        <li><%= link_to "Home", root_path %></li>
+        <li><%= link_to "Help", huy_path %></li>
+        <% if logged_in? %>
+          <%= link_to "Users", '#' %>
+          <%= link_to "Profile", current_user %>
+          <%= link_to "Settings", '#' %>
+          <%= link_to "Log out", logout_path,  method: :delete %>
+
+        <% else %>
+          <li><%= link_to "Log in", login_path %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>
