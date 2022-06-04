@@ -3,7 +3,7 @@ class User < ApplicationRecord
   attr_accessor :remember_me
 
   before_save { self.email = email.downcase }
-  validates :name, presence: true, length: {minimum:5, maximum:10}
+  validates :name, presence: true, length: {minimum:5, maximum:30}
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: {minimum:9, maximum:30},
                                     format: { with: VALID_EMAIL_REGEX },
