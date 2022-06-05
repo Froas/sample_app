@@ -6,8 +6,11 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   get "/index", to: "users#index"
   get '/login',to: 'sessions#new'
+  #patch "set", to: "users#admin_set"
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy', via: :delete
+  get "/delete/:id", to: "users#destroy", as: :delete_path
+  get "/admin", to: "users#admin_set"
   
   resources :users
 
