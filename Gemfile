@@ -1,8 +1,9 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "2.7.6"
+ruby "~>2.7.6"
 
+ruby ENV['CUSTOM_RUBY_VERSION'] || '2.7.6'
 gem "rails", "~> 7.0.3"
 gem "sprockets-rails"
 gem "puma", "~> 5.0"

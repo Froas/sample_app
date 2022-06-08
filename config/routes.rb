@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  default_url_options :host => "example.com"
   get 'users/new'
   get 'static_pages/help'
   get "/huy", to: "static_pages#about"
@@ -6,16 +7,14 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   get "/index", to: "users#index"
   get '/login',to: 'sessions#new'
-  #patch "set", to: "users#admin_set"
+  get "/set", to: "users#admin_set", as: :set_path
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy', via: :delete
   get "/delete/:id", to: "users#destroy", as: :delete_path
-  get "/admin", to: "users#admin_set"
+  
   
   resources :users
+  resources :account_activations, only: [:edit]
 
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
 end
