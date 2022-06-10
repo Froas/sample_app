@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'password_resets/new'
   get 'password_resets/edit'
+  post 'password_resets/:id', to: "password_resets#update"
   get 'reset/new'
   get 'reset/create'
   default_url_options :host => "example.com"
