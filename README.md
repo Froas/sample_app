@@ -1,5 +1,10 @@
 # Ruby on Rails チュートリアルのサンプルアプリケーション
 
+Resources: 
+https://www.oreilly.com/library/view/ruby-on-rails/9780136702726/
+
+https://railstutorial.jp/
+
 これは、次の教材で作られたサンプルアプリケーションです。
 [*Ruby on Rails チュートリアル*](https://railstutorial.jp/)
 （第6版）
