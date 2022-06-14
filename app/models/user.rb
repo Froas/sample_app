@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   attr_accessor :remember_token, :remember_me, :activation_token, :reset_token
 
-  before_create :create_atrivation_digest
+  before_create :create_activation_digest
   before_save :downcase_email
   validates :name, presence: true, length: {minimum:5, maximum:30}
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -23,6 +23,15 @@ class User < ApplicationRecord
   def send_password_reset_email
     UserMailer.password_reset(self).deliver_now
   end 
+
+  def send_activation_email
+    UserMailer.account_activation(self).deliver_now
+  end
+
+  def activate
+    update_columns(activated: true, activated_at: Time.zone.now)
+  end
+  
   def downcase_email
     self.email = email.downcase 
   end
@@ -59,12 +68,11 @@ class User < ApplicationRecord
     
   end
 
-  private 
-    def create_activation_digest
-      self.activation_token = User.new_token
-      self.activation_digest =User.digest(activation_token)
-      
-    end
+  def create_activation_digest
+    self.activation_token  = User.new_token
+    self.activation_digest = User.digest(activation_token)
+    update_columns(activation_digest: User.digest(activation_token))   
+  end
 end
 
 #второе да там на хероку но он не работает на этом приложении. вот на первом работает хероку

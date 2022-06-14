@@ -5,8 +5,22 @@ class SessionsController < ApplicationController
   def new
   end
 
+  def resend_activation
+    @user = User.find_by_email(params[:sessions][:email]) 
+    @user.create_activation_digest
+    if !@user.activated?
+      @user.send_activation_email
+      flash[:success] = "Activation email resent!"
+      redirect_to root_url
+    else
+      flash.now[:danger] = 'Email is not asociated with any account, please sign up first.'
+      redirect_to root_url
+    end
+  end
+
+
+
   def create
-    # @user = User.find(params[:id])
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
       if user.activated?
@@ -15,9 +29,8 @@ class SessionsController < ApplicationController
         params[:session][:remember_me] == '1' ? remember(user) : user
       else
         message = "Account not activated. "
-        message += "Check your email for the activation link."
+        message += "Click #{view_context.link_to " here ", resend_path} for resend activation email"
         flash[:warning] = message
-        # UserMailer.account_activation(@user).deliver_now
         redirect_to root_url
       end
     else

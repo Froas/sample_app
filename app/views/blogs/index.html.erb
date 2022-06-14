@@ -1,0 +1,16 @@
+<h1>All blogs </h1>
+
+<%= will_paginate %>
+
+<ul class="users">
+  <%= @blogs.each do |blog| %>
+  <li>
+    <%= link_to blog.title, blog %>
+    <div><%= blog.blog %></div>
+  </li>
+
+  <% end %>
+</ul>
+
+
+<%= will_paginate %>

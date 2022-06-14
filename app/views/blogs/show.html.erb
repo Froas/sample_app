@@ -1,0 +1,9 @@
+
+<h1>
+  <ul class="user">
+    <li><%= @blog.title %></li>
+    <li><%= @blog.blog %></li>
+  </ul>
+  <%= link_to "Delete", delete_blog_path_url(@blog)%>
+  <%= link_to "Edit", edit_blog_path(@blog)%>
+</h1>

@@ -1,17 +1,15 @@
 <% provide(:title, @user.name) %>
 <h1>
-<ul class="user">
-<li><%= gravatar_for @user %>
-<%= @user.name %>
-<%= @user.id %></li>
-<li><%= @user.email %></li>
-<li>Activate: <%= @user.activated %></li>
-<li>Admin: <%= @user.admin %></li>
-</ul>
-
-<%= link_to "Activate", set_path_url(id: @user.id) %>
-
-<% if current_user == @user %>
-<%= link_to "Edit", edit_user_path %>
-<% end %>
+  <ul class="user">
+    <li><%= gravatar_for @user %>
+      <%= @user.name %>
+      <%= @user.id %></li>
+    <li><%= @user.email %></li>
+    <li>Activate: <%= @user.activated %></li>
+    <li>Admin: <%= @user.admin %></li>
+  </ul>
+  <%= link_to "Activate", set_path_url(id: @user.id) %>
+  <% if current_user == @user %>
+  <%= link_to "Edit", edit_user_path %>
+  <% end %>
 </h1>

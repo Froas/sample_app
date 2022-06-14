@@ -2,8 +2,7 @@
 <h1>Reset password</h1>
 <div class="row">
 <div class="col-md-6 col-md-offset-3">
-<%= form_with(model: @user, url: password_resets_edit_path(params[:id]),
-local: true) do |f| %>
+<%= form_for(:password_reset, url: password_resets_path) do |f| %>
 <%= render 'shared/error_messages' %>
 <%
 =begin%>

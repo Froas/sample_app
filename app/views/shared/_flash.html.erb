@@ -1,0 +1,10 @@
+<!--
+* File: app/views/shared/_flash.html.erb
+* Note: the `html_safe` is important here
+-->
+
+<% flash.each do |type, msg| %>
+    <div class="alert alert-info">
+        <%= msg.html_safe %>
+    </div>
+<% end %>

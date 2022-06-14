@@ -1,0 +1,18 @@
+{
+  "name": "Rails server",
+  "type": "Ruby",
+  "request": "launch",
+  "cwd": "${workspaceRoot}",
+  "program": "${workspaceRoot}/bin/rails",
+  "args": [
+     "server"
+  ],
+  "configurations": [
+  {
+    "name": "Debug Local File",
+    "type": "Ruby",
+    "request": "launch",
+    "program": "${workspaceRoot}/main.rb"
+  }
+  ]
+}

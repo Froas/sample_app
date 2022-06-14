@@ -1,0 +1,14 @@
+  <div class="FormBody">
+      <h1 style="margin-bottom:30px">Account Activation</h1>
+  <div class="col-md-6 col-md-offset-3">
+      <p> If you need the activation email to be resent enter the email you signed up with and hit the resend button. </p>
+        <%= form_for(:sessions, url: resend_activation_path) do |f| %>
+
+          <div>
+              <%= f.text_field :email, class: 'form-control' , placeholder: "Email"%>
+          </div>
+
+           <%= f.submit "Resend", class: "btn btn-primary", data: {toggle: "tooltip"}, title: "Resend" %>
+       <% end %>
+  </div>
+  </div>
